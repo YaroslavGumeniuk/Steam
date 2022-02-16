@@ -70,6 +70,11 @@ img {
   color: #fff;
 }
 
+.form {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
 .form-control {
   display: block;
   margin-top: 0.3rem;
@@ -79,7 +84,7 @@ img {
     display: block;
     font-weight: bold;
     font-size: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
   }
 
   input {
@@ -128,7 +133,6 @@ hr {
 
 .navbar {
   display: flex;
-  // justify-content: space-between;
   align-items: center;
   padding: 0.7rem 2rem;
   z-index: 1;
@@ -137,6 +141,7 @@ hr {
   margin-bottom: 1rem;
   background-color: #fff;
   color: #000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   .log-btns {
     position: relative;
