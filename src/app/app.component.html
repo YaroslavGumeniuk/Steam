@@ -1,25 +1,26 @@
 <nav class="navbar">
   <div class="logo-img">
-    <img src="./../assets/images/logo.png" alt="logo">
+    <a [routerLink]='["/"]'>
+      <img src="./../assets/images/logo.png" alt="logo">
+    </a>
   </div>
   <ul>
-    <li><a href="#">Games</a></li>
-    <li><a href="#">Library</a></li>
-    <li><a href="#">Friends</a></li>
-    <li class="active">
-      <a href="#">Profile</a>
-    </li>
+    <li routerLinkActive="active"><a [routerLink]='["/games"]'>Games</a></li>
+    <li routerLinkActive="active"><a [routerLink]='["/library"]'>Library</a></li>
+    <li routerLinkActive="active"><a [routerLink]='["/friends"]'>Friends</a></li>
+    <li routerLinkActive="active"><a [routerLink]='["/profile"]'>Profile</a></li>
   </ul>
   <ul class="log-btns">
-    <li><button class="btn">Login</button></li>
-    <li><button class="btn">Logout</button></li>
+    <li><button class="btn" (click)="goToLoginPage()">Login</button></li>
+    <!-- <li><button class="btn">Logout</button></li> -->
   </ul>
 </nav>
 
 <div class="container">
-  <app-login></app-login>
-  <app-profile></app-profile>
-  <app-friends></app-friends>
-  <app-library></app-library>
-  <app-games></app-games>
+  <router-outlet></router-outlet>
+  <!-- <app-login></app-login> -->
+  <!-- <app-profile></app-profile> -->
+  <!-- <app-friends></app-friends> -->
+  <!-- <app-library></app-library> -->
+  <!-- <app-games></app-games> -->
 </div>
