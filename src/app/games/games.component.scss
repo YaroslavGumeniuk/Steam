@@ -1,0 +1,102 @@
+.games-container {
+  // display: flex;
+  //   flex-direction: column;
+  padding: 20px 60px;
+  min-height: 600px;
+  margin: 0 auto;
+  margin-top: 30px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+.search-block {
+  display: flex;
+  margin-bottom: 20px;
+  input {
+    font-size: 15px;
+    width: 100%;
+  }
+  input,
+  .search-btn {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+  }
+}
+.search-btn {
+  background-color: #6c69ff;
+  margin-left: 10px;
+}
+.search-games__container {
+  display: flex;
+  justify-content: space-between;
+}
+.card-container {
+  width: 68%;
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  width: 32%;
+  margin-bottom: 10px;
+  padding: 0;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+  .card__header {
+    background: #bdbcff;
+    color: #fff;
+    height: 150px;
+    padding: 10px;
+
+    p {
+      font-size: 24px;
+    }
+  }
+  .card__content {
+    padding: 10px;
+    font-size: 14px;
+    line-height: 13px;
+  }
+  .btn-add {
+    width: 100%;
+    background: #6c69ff;
+    color: #fff;
+    height: 32px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+}
+
+.filter-container {
+  width: 30%;
+  padding: 10px;
+  border-left: 1px solid #000;
+
+  .range-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .range {
+    width: 70%;
+    margin: 0;
+  }
+  .checkbox-block {
+    label {
+      display: block;
+
+      span {
+        display: inline-block;
+        width: 40px;
+        line-height: 40px;
+        vertical-align: top;
+      }
+    }
+    input {
+      width: 20px;
+      height: 20px;
+      margin: 10px;
+    }
+  }
+}

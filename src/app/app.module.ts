@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FriendsComponent } from './friends/friends.component';
 import { LibraryComponent } from './library/library.component';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { LibraryComponent } from './library/library.component';
     LoginComponent,
     ProfileComponent,
     FriendsComponent,
-    LibraryComponent
+    LibraryComponent,
+    GamesComponent
   ],
   imports: [
     BrowserModule,
