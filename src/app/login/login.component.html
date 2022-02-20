@@ -26,15 +26,23 @@
             <small *ngIf="form.get('password')?.errors?.['required']">Field is required</small>
             <small *ngIf="form.get('password')?.errors?.['minlength']">
                 At least {{form.get('password')?.errors?.['minlength']['requiredLength']}} characters.
-                Now {{form.get('password')?.errors?.['minlength']['actualLength']}} characters.
+                Now 
+                    <strong>
+                        {{form.get('password')?.errors?.['minlength']['actualLength']}}
+                    </strong>
+                characters.
             </small>
         </div>
+        <div class="validation"
+            *ngIf="loginTrigger"
+        >User not registered</div>
     </div>
     <button 
-        type="submit" 
-        class="btn btn-login"
-        [disabled]="form.invalid"    
-        >Login</button>
+    type="submit" 
+    class="btn btn-login"
+    [disabled]="form.invalid"    
+    (click)="submit()"
+    >Login</button>
 </form>
 
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { User } from './../interfaces';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -12,4 +13,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  saveUser(){
+  }
 }
