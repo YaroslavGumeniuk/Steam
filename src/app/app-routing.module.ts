@@ -1,3 +1,4 @@
+import { RegistrationComponent } from './registration/registration.component';
 import { LibraryComponent } from './library/library.component';
 import { GamesComponent } from './games/games.component';
 import { FriendsComponent } from './friends/friends.component';
@@ -7,7 +8,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'friends', component: FriendsComponent},
   {path: 'games', component: GamesComponent},

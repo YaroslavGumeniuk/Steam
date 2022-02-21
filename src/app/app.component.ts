@@ -16,7 +16,11 @@ export class AppComponent {
   constructor(private router: Router, private showUser: AddUserService){  }
   
   goToLoginPage() {
-    this.items = this.showUser.getData()
+    // this.items = this.showUser.getData()
+    this.router.navigate(['/login'])
+  }
+
+  goToRegistrationPage(){
     this.router.navigate(['/'])
   }
 

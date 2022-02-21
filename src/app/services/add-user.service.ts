@@ -7,15 +7,12 @@ import { User } from '../user';
 export class AddUserService {
   constructor() { }
 
-  users: User[] = [
-    // { email: 'a@aaa', password: '111111' }
-  ]
+  users: User[] = []
 
   getData(): User[] {
-    console.log(this.users)
     return this.users
   }
   addData(email: string, password: string) {
-    this.users.push(new User(email, password))
+    this.users.unshift(new User(email, password))
   }
 }

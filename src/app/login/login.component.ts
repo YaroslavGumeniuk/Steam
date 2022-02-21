@@ -13,17 +13,10 @@ import { User } from '../user';
 export class LoginComponent {
 
   items: User[] = []
-  
-  constructor(private router: Router, private addUser: AddUserService){ }
 
-  addItem(){
-    const currentUser: User = {
-      email: this.form.value.email,
-      password: this.form.value.password
-    }
-    this.addUser.addData(currentUser.email, currentUser.password)
-    this.items = this.addUser.getData()
-  }
+  constructor(private router: Router, private addUser: AddUserService){ }
+  
+  legalUsers = this.addUser.getData()
 
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [
@@ -38,28 +31,27 @@ export class LoginComponent {
   
   loginTrigger = false
 
-  legalUser: User = {
-    email: 'a@aaa',
-    password: '111111'
+  onInput(){
+    this.loginTrigger = false
   }
 
-  submit() {
+  login() {
 
-    if(this.form.invalid) {
-      return
-    }
-
-    const user: User = {
+    const currentUser: User = {
       email: this.form.value.email,
       password: this.form.value.password
     }
 
-    if(this.legalUser.email !== user.email || this.legalUser.password !== user.password) {
-      this.loginTrigger = true
-      return
+    for (let i = 0; i < this.legalUsers.length; i++) {
+      if(this.legalUsers[i].email !== currentUser.email || this.legalUsers[i].password !== currentUser.password) {
+        this.loginTrigger = true
+        return
+      }
+
+      if(this.legalUsers[i].email === currentUser.email && this.legalUsers[i].password === currentUser.password) {
+        this.loginTrigger = false
+        this.router.navigate(['/games'])
+      }
     }
-
-    this.router.navigate(['/profile'])
-
   }
 }

@@ -5,7 +5,7 @@
         class="form-control"
     >
         <label>Email</label>
-        <input type="email" placeholder="Email" formControlName="email">
+        <input type="email" placeholder="Email" formControlName="email" (input)="onInput()">
         <div 
             *ngIf="form.get('email')?.touched || form.get('email')?.invalid"
             class="validation">
@@ -19,7 +19,7 @@
         class="form-control"
     >
         <label>Password</label>
-        <input type="password" placeholder="Password" formControlName="password">
+        <input type="password" placeholder="Password" formControlName="password" (input)="onInput()">
         <div 
             *ngIf="form.get('password')?.touched || form.get('password')?.invalid"
             class="validation">
@@ -38,12 +38,11 @@
         >User not registered</div>
     </div>
     <button 
-    type="submit" 
-    class="btn btn-login"
-    (click)="addItem()"
-    (click)="submit()"
-    [disabled]="form.invalid"    
-    >Login</button>
-</form>
+        type="submit" 
+        class="btn btn-login"
+        (click)="login()"
+        [disabled]="form.invalid"    
+        >Login</button>
+    </form>
 
 
