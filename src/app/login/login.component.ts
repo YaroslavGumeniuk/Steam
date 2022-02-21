@@ -1,7 +1,8 @@
-import { User } from './../interfaces';
+import { AddUserService } from './../services/add-user.service';
 import { Router } from '@angular/router';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../user';
 
 
 @Component({
@@ -9,11 +10,21 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+
+  items: User[] = []
   
-  constructor(private router: Router){ }
-  ngOnInit(): void {}
-  
+  constructor(private router: Router, private addUser: AddUserService){ }
+
+  addItem(){
+    const currentUser: User = {
+      email: this.form.value.email,
+      password: this.form.value.password
+    }
+    this.addUser.addData(currentUser.email, currentUser.password)
+    this.items = this.addUser.getData()
+  }
+
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [
       Validators.required, 
@@ -26,14 +37,14 @@ export class LoginComponent implements OnInit {
   })
   
   loginTrigger = false
+
   legalUser: User = {
     email: 'a@aaa',
     password: '111111'
   }
 
-  @Output() onLegalUser: EventEmitter<User> = new EventEmitter<User>()
-
   submit() {
+
     if(this.form.invalid) {
       return
     }
@@ -43,7 +54,7 @@ export class LoginComponent implements OnInit {
       password: this.form.value.password
     }
 
-    if(this.legalUser.email !== user.email && this.legalUser.password !== user.password) {
+    if(this.legalUser.email !== user.email || this.legalUser.password !== user.password) {
       this.loginTrigger = true
       return
     }
