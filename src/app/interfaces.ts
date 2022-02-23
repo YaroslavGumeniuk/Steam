@@ -3,3 +3,7 @@ export interface User {
     password?: string
     age?: string
 }
+
+export class Person {
+  constructor(public email: string, public name: string) {}
+}

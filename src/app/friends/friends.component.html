@@ -1,23 +1,28 @@
 <div class="friends-container">
     <h2>Friends</h2>
-    <div class="form-control">
+    <div class="form-control" [formGroup]="form">
         <label>Search Friends</label>
         <div class="search-block">
-            <input type="text" placeholder="Search Friends">
+            <input type="text" placeholder="Search Friends" 
+                formControlName="searchInput" (input)="onInput()"
+            >
             <button class="btn search-btn">Search</button>
         </div>
     </div>
-    <h2>My Friends</h2>
-    <div class="friend">
-        <p class="friend-name">Ivan_Blaze@mail.com</p>
-        <button class="btn btn-remove">Remove Friend</button>
+
+    <h2>Search Friends: {{ textInput }} </h2>
+    <div class="person" *ngFor="let person of searchedPersons">
+        <p class="person-name">{{ person.name }}</p>
+        <p class="person-email">{{ person.email }}</p>
+        <button class="btn btn-add" (click)="addFriend($event)">Add Friend</button>
     </div>
 
     <hr>
 
-    <h2>Search Friends: Swag</h2>
-    <div class="friend">
-        <p class="friend-name">Swag_boi</p>
-        <button class="btn btn-add">Add Friend</button>
+    <h2>My Friends</h2>
+    <div class="friend" *ngFor="let friend of friends">
+        <p class="friend-name">{{ friend.name }}</p>
+        <button class="btn btn-remove" (click)="removeFriend($event)">Remove friend</button>
     </div>
+
 </div>
