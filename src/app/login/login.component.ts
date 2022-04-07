@@ -14,13 +14,13 @@ export class LoginComponent {
 
   items: User[] = []
 
-  constructor(private router: Router, private addUser: AddUserService){ }
-  
+  constructor(private router: Router, private addUser: AddUserService) { }
+
   legalUsers = this.addUser.getData()
 
   form: FormGroup = new FormGroup({
     email: new FormControl(null, [
-      Validators.required, 
+      Validators.required,
       Validators.email
     ]),
     password: new FormControl(null, [
@@ -28,10 +28,10 @@ export class LoginComponent {
       Validators.minLength(6)
     ])
   })
-  
+
   loginTrigger = false
 
-  onInput(){
+  onInput() {
     this.loginTrigger = false
   }
 
@@ -43,14 +43,14 @@ export class LoginComponent {
     }
 
     for (let i = 0; i < this.legalUsers.length; i++) {
-      if(this.legalUsers[i].email !== currentUser.email || this.legalUsers[i].password !== currentUser.password) {
+      if (this.legalUsers[i].email !== currentUser.email || this.legalUsers[i].password !== currentUser.password) {
         this.loginTrigger = true
         return
       }
 
-      if(this.legalUsers[i].email === currentUser.email && this.legalUsers[i].password === currentUser.password) {
+      if (this.legalUsers[i].email === currentUser.email && this.legalUsers[i].password === currentUser.password) {
         this.loginTrigger = false
-        this.router.navigate(['/games'])
+        this.router.navigate(['/friends'])
       }
     }
   }
